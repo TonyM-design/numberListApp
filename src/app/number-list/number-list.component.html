@@ -1,0 +1,30 @@
+<div class="container" style ="background-color: aliceblue;">
+    <div class="row d-flex justify-content-start " >
+        <div class="col-2">
+            <h5>Longueur de liste :</h5> 
+        </div>
+
+        <div class="col-2">
+            <input type="number" min='0' class="form-control col-4 " placeholder="number list lenght"
+                aria-label="number list lenght" aria-describedby="basic-addon1" [(ngModel)]="requestedNumberListLenght"
+                (ngModelChange)="this.numberListSettings.requestedNumberListLenght.next($event)">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+                <tr class="row">
+                    <th class="col-1">#</th>
+                    <th class="col-2">Value</th>
+                    <th class="col-3 ">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row " *ngFor="let number of numberListSettings.numberLists; let i = index">
+                    <app-list-item class="d-flex align-items-start" [inputIndex]="i" [valueImport]="this.numberListSettings.numberLists[i]">
+                    </app-list-item>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
